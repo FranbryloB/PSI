@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}Novo Personagem{% endblock %}
+{% block titulo %}Cadastro de Novo Personagem{% endblock %}
+
+{% block conteudo %}
+<form method="POST">
+    <label>Nome:</label><br>
+    <input type="text" name="nome" required><br><br>
+
+    <label>Jogo de Origem:</label><br>
+    <input type="text" name="jogo" required><br><br>
+
+    <label>Habilidade Principal:</label><br>
+    <input type="text" name="habilidade" required><br><br>
+
+    <button type="submit">Cadastrar</button>
+</form>
+{% endblock %}

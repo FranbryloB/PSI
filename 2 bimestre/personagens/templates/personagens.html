@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}Lista de Personagens{% endblock %}
+{% block titulo %}Personagens Cadastrados{% endblock %}
+
+{% block conteudo %}
+<table border="1">
+    <tr>
+        <th>Nome</th>
+        <th>Jogo de Origem</th>
+        <th>Habilidade Principal</th>
+    </tr>
+    {% for p in lista %}
+    <tr>
+        <td>{{ p.nome }}</td>
+        <td>{{ p.jogo_origem }}</td>
+        <td>{{ p.habilidade_principal }}</td>
+    </tr>
+    {% else %}
+    <tr>
+        <td colspan="3">Nenhum personagem cadastrado.</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}
