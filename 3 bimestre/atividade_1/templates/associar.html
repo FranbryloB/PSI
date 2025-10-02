@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Associar Usuário a Times</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <h1>Associar Usuário a Times</h1>
+    <form method="post">
+        <label for="usuario_id">Usuário:</label>
+        <select name="usuario_id" id="usuario_id" required>
+            {% for usuario in usuarios %}
+                <option value="{{ usuario.id }}">{{ usuario.nome }}</option>
+            {% endfor %}
+        </select>
+        <label for="times">Times (segure Ctrl para selecionar mais de um):</label>
+        <select name="times" id="times" multiple size="5" required>
+            {% for time in times %}
+                <option value="{{ time.id }}">{{ time.nome }}</option>
+            {% endfor %}
+        </select>
+        <input type="submit" value="Associar">
+    </form>
+    <h2>Associações atuais</h2>
+    <ul>
+        {% for usuario in usuarios %}
+            <li>{{ usuario.nome }}: 
+                {% for time in usuario.times %}{{ time.nome }}{% if not loop.last %}, {% endif %}{% endfor %}
+            </li>
+        {% else %}
+            <li>Nenhum usuário cadastrado.</li>
+        {% endfor %}
+    </ul>
+    <a href="/">Voltar para o início</a>
+</body>
+</html>

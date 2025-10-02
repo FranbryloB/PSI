@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastrar Vinculado</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <h1>Cadastrar Vinculado</h1>
+    <form method="post">
+        <label for="nome">Nome do Vinculado:</label>
+        <input type="text" id="nome" name="nome" required>
+        <label for="time_id">Time:</label>
+        <select id="time_id" name="time_id" required>
+            {% for t in times %}
+                <option value="{{ t.id }}">{{ t.nome }}</option>
+            {% endfor %}
+        </select>
+        <input type="submit" value="Cadastrar">
+    </form>
+    <h2>Vinculados cadastrados</h2>
+    <ul>
+        {% for v in vinculados %}
+            <li>{{ v.nome }} ({{ v.time.nome }})</li>
+        {% else %}
+            <li>Nenhum vinculado cadastrado.</li>
+        {% endfor %}
+    </ul>
+    <a href="/">Voltar para o início</a>
+</body>
+</html>

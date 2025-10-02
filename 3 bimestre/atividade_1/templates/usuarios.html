@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastrar Usuário</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <h1>Cadastrar Usuário</h1>
+    <form method="post">
+        <label for="nome">Nome do Usuário:</label>
+        <input type="text" id="nome" name="nome" required>
+        <input type="submit" value="Cadastrar">
+    </form>
+    <h2>Usuários cadastrados</h2>
+    <ul>
+        {% for u in usuarios %}
+            <li>{{ u.nome }}</li>
+        {% else %}
+            <li>Nenhum usuário cadastrado.</li>
+        {% endfor %}
+    </ul>
+    <a href="/">Voltar</a>
+</body>
+</html>

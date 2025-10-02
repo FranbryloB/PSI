@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastrar Time</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <h1>Cadastrar Time</h1>
+    <form method="post">
+        <label for="nome">Nome do Time:</label>
+        <input type="text" id="nome" name="nome" required>
+        <input type="submit" value="Cadastrar">
+    </form>
+    <h2>Times cadastrados</h2>
+    <ul>
+        {% for t in times %}
+            <li>{{ t.nome }}</li>
+        {% else %}
+            <li>Nenhum time cadastrado.</li>
+        {% endfor %}
+    </ul>
+    <a href="/">Voltar para o início</a>
+</body>
+</html>
