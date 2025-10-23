@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>Bem-vindo!</h2>
+    
+    {% if current_user.is_authenticated %}
+        Olá {{ current_user.nome }}!
+    {% else %}
+        Faça login para acessar a loja
+    {% endif %}
+{% endblock %}

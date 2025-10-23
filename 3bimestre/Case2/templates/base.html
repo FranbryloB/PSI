@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Loja</title>
+    <style>
+    input{margin:3px}
+    </style>
+</head>
+<body>
+    <div>
+        <a href="{{ url_for('home') }}">Início</a> |
+        <a href="{{ url_for('products.index') }}">Produtos</a> |
+        {% if current_user.is_authenticated %}
+            <a href="{{ url_for('users.logout') }}">Sair</a>
+        {% else %}
+            <a href="{{ url_for('users.login') }}">Login</a> |
+            <a href="{{ url_for('users.register') }}">Registrar</a>
+        {% endif %}
+    </div>
+    <hr>
+    {% block content %}{% endblock %}
+</body>
+</html>

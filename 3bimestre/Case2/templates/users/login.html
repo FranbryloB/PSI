@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>Login</h2>
+    
+    <form method="post">
+        Email: <input type="email" name="email" required>
+        <br><br>
+        Senha: <input type="password" name="password" required>
+        <br><br>
+        <input type="submit" value="Entrar">
+    </form>
+
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+                <p>{{ message }}</p>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    
+    <br>
+    <a href="{{ url_for('users.register') }}">Criar conta</a>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>Produtos</h2>
+    
+    {% if current_user.is_authenticated %}
+        <p><a href="{{ url_for('products.create') }}">Novo Produto</a></p>
+    {% endif %}
+    
+    {% for product in products %}
+        <div>
+            <h3>{{ product[1] }}</h3>
+            {{ product[2] }}
+            <br>
+            Preço: R$ {{ product[3] }}
+            <br>
+            Estoque: {{ product[4] }}
+            <hr>
+        </div>
+    {% endfor %}
+{% endblock %}
