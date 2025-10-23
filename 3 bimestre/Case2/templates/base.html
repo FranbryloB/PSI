@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Loja</title>
+</head>
+<body>
+    <div>
+        <a href="{{ url_for('home') }}">Início</a> 
+        <a href="{{ url_for('products.index') }}">Produtos</a> 
+        <a href="{{ url_for('users.logout') }}">Sair</a>
+        <a href="{{ url_for('users.login') }}">Login</a> 
+        <a href="{{ url_for('users.register') }}">Registrar</a>
+    </div>
+    {% block content %}{% endblock %}
+</body>
+</html>

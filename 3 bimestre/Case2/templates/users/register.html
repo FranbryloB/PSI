@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>Registro</h2>
+    
+    <form method="post">
+        Email: <input type="email" name="email" value="{{request.form['email']}}" required>
+        <br><br>
+        Nome: <input type="text" name="nome" value="{{request.form['nome']}}" required>
+        <br><br>
+        Senha: <input type="password" name="password" required>
+        <br><br>
+        <input type="submit" value="Registrar">
+    </form>
+
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+                <p>{{ message }}</p>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    
+    <br>
+    <a href="{{ url_for('users.login') }}">Fazer login</a>
+{% endblock %}
